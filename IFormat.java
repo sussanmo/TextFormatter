@@ -1,2 +1,6 @@
-package PACKAGE_NAME;public interface IFormat {
+import java.util.ArrayList;
+
+public interface IFormat {
+
+    public void format(ArrayList<String> data);
 }
