@@ -1,2 +1,12 @@
-package PACKAGE_NAME;public class TextFiles {
+import java.util.ArrayList;
+
+public class TextFiles {
+
+    private ArrayList<String> fileContent;
+
+    public TextFiles (){
+        fileContent = new ArrayList<>();
+    }
+
+
 }
