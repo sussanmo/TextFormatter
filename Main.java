@@ -28,6 +28,23 @@ public class Main {
 
         file.printMarkdownText();
 
+        int option = 0;
+        switch (option){
+            case 0:
+                file.printPlainText();
+                break;
+            case 1:
+                file.printHTMLText();
+                break;
+            case 2:
+                file.printMarkdownText();
+                break;
+            default:
+                file.printPlainText();
+                break;
+
+        }
+
 
     }
 }
