@@ -34,9 +34,10 @@ public class TextFiles {
     public void printMarkdownText(){
         String[] options = {"**", "---", "~~", "__"};
         Random rand = new Random();
-        int number = rand.nextInt(options.length);
+
         System.out.println("#" + fileContent.get(0));
         for(int i = 1; i < fileContent.size(); i++) {
+            int number = rand.nextInt(options.length);
             String option = options[number];
             System.out.println(option+fileContent.get(i));
         }
