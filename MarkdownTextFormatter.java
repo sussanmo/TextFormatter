@@ -23,7 +23,7 @@ public class MarkdownTextFormatter implements IFormat{
         Random rand = new Random();
 
         try (FileWriter writer = new FileWriter(filename)) {
-            System.out.println("#" + fileContent.get(0));
+            writer.write("#" + fileContent.get(0));
             for (int i = 1; i < fileContent.size(); i++) {
                 int number = rand.nextInt(options.length);
                 String option = options[number];
