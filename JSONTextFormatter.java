@@ -20,12 +20,14 @@ public class JSONTextFormatter implements IFormat{
     public void saveFormat(String filename, ArrayList<String> fileContent){
 
         try (FileWriter writer = new FileWriter(filename)) {
-
+            writer.write("{");
+            writer.write("filecontent: " + "[ " + "\n");
             for (int i = 0; i < fileContent.size(); i++) {
-                writer.write("<text="+fileContent.get(i)+">" + "\n");
+                writer.write("line: "+fileContent.get(i)+ "," + "\n");
+                writer.write("}," + "\n");
             }
-            System.out.println("]," + "\n");
-            System.out.println("}");
+            writer.write("]," + "\n");
+            writer.write("}");
         }catch (IOException exception){
             System.out.println("Error in saving file");
         }

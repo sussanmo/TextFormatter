@@ -1,21 +1,11 @@
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.XMLFormatter;
 
 public class Main {
 
-    // Allow user to input document
-    // Allow user to input format type
 
-    //Create method for html formatting: < >
-
-    //Create method for markdown formatting: **, ##,
-
-    //Create method for plaint text formatting: return the file
-
-    //Create method for json tex:  { }
-
-    //Create method for xml text:
     public static void main(String args[]) {
 
         ArrayList<String> data = new ArrayList<>();
@@ -30,9 +20,9 @@ public class Main {
 
         while (true) {//int option = 0;
             System.out.println("Choose a format to preview by choosing one of these numbers");
-            System.out.println("1 - PlainText, 2 - HTML, 3 - Markdown");
+            System.out.println("1 - PlainText, 2 - HTML, 3 - Markdown, 4 - JSON, 5 - XML");
             System.out.println("Type 0 to exit this preview");
-            System.out.println("Type 4 to select the document and to save in a format");
+            System.out.println("Type 6 to select the document and to save in a given format");
             int option = scanner.nextInt();
             switch (option) {
                 case 0:
@@ -49,9 +39,15 @@ public class Main {
                 case 3:
                     file.setFormat(new MarkdownTextFormatter());
                     break;
-                case 4: // write file
+                case 4:
+                    file.setFormat(new JSONTextFormatter());
+                    break;
+                case 5:
+                    file.setFormat(new XMLFormat());
+                    break;
+                case 6: // write file
                     System.out.println("Enter formatType you want to save to: ");
-                    System.out.println("Type: 1 - PlainText, 2 - HTML, 3 - Markdown");
+                    System.out.println("Type: 1 - PlainText, 2 - HTML, 3 - Markdown, 4 - JSON, 5 - XML");
                     int filetype = scanner.nextInt();
                     String fileName = "document.txt"; // default
                     if(filetype == 1){
@@ -65,7 +61,14 @@ public class Main {
                     }else if(filetype == 3){
                         fileName = "document.md";
                         file.saveFormat(fileName,new MarkdownTextFormatter());
+                    }else if(filetype == 4){
+                        fileName = "document.json";
+                        file.saveFormat(fileName,new JSONTextFormatter());
+                    }else if(filetype == 5){
+                        fileName = "document.xml";
+                        file.saveFormat(fileName,new XMLFormat());
                     }
+
                     System.out.println("File has been saved!");
                     return; //exit out of program
                 default:

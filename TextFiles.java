@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Set;
+import java.util.logging.XMLFormatter;
 
 public class TextFiles {
 
@@ -59,9 +60,6 @@ public class TextFiles {
     public void printFormat(){
         format.format(fileContent);
     }
-
-
-
 
 
 
