@@ -5,14 +5,16 @@ import java.util.Set;
 public class TextFiles {
 
     private ArrayList<String> fileContent;
-
-    public TextFiles (){
-        fileContent = new ArrayList<>();
-    }
+    private IFormat format;
 
     public TextFiles (ArrayList<String> data){
         fileContent = data;
     }
+
+    public void setFormat(IFormat format){
+        this.format = format;
+    }
+
 
     public void printPlainText(){
         for(int i = 0; i < fileContent.size(); i++) {
@@ -43,6 +45,10 @@ public class TextFiles {
         }
 
 
+    }
+
+    public void printFormat(){
+        format.format(fileContent);
     }
 
 
