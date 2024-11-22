@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -31,6 +32,7 @@ public class Main {
             System.out.println("Choose a format to preview by choosing one of these numbers");
             System.out.println("1 - PlainText, 2 - HTML, 3 - Markdown");
             System.out.println("Type 0 to exit this preview");
+            System.out.println("Type 4 to select the document and to save in a format");
             int option = scanner.nextInt();
             switch (option) {
                 case 0:
@@ -39,7 +41,7 @@ public class Main {
 
                 case 1:
                     file.setFormat(new PlainTextFormat());
-                    file.printPlainText();
+
                     break;
                 case 2:
                     file.setFormat(new HTMLTextFormatter());
@@ -47,16 +49,31 @@ public class Main {
                 case 3:
                     file.setFormat(new MarkdownTextFormatter());
                     break;
+                case 4: // write file
+                    System.out.println("Enter formatType you want to save to: ");
+                    System.out.println("Type: 1 - PlainText, 2 - HTML, 3 - Markdown");
+                    int filetype = scanner.nextInt();
+                    String fileName = "document.txt"; // default
+                    if(filetype == 1){
+                        fileName = "document.txt";
+                        //file.setFormat(new PlainTextFormat());
+                        file.saveFormat(fileName, new PlainTextFormat());
+
+                    }else if(filetype == 2){
+                        fileName = "document.html";
+                        file.saveFormat(fileName,new HTMLTextFormatter());
+                    }else if(filetype == 3){
+                        fileName = "document.md";
+                        file.saveFormat(fileName,new MarkdownTextFormatter());
+                    }
+                    System.out.println("File has been saved!");
+                    return; //exit out of program
                 default:
                     file.setFormat(new PlainTextFormat());
                     break;
-
             }
             file.printFormat();
         }
-
-
-
 
     }
 }

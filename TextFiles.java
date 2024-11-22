@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Set;
@@ -14,6 +16,13 @@ public class TextFiles {
     public void setFormat(IFormat format){
         this.format = format;
     }
+
+    public void saveFormat(String filename, IFormat format)  {
+        this.format = format;
+        format.saveFormat(filename, fileContent);
+    }
+
+
 
 
     public void printPlainText(){
@@ -50,6 +59,8 @@ public class TextFiles {
     public void printFormat(){
         format.format(fileContent);
     }
+
+
 
 
 
