@@ -1,9 +1,7 @@
 import java.util.ArrayList;
-
 public class Main {
     public static void main(String[] args) {
-
-        Notification notificationSys = new BasicNotification("System Update"); // basic notiicaiotn
+        Notification notificationSys = new BasicNotification("New Outlook Email "); // basic notiicaiotn
         //notificationSys.sendNotification();
 
         Notification SMSnotification = new SMSNotification(notificationSys);  // basic notiicaiotn
@@ -15,8 +13,13 @@ public class Main {
         //emailNotifications.sendNotification();
 
         Notification slackNotification = new SlackNotification(notificationSys);  // basic notiicaiotn
-        slackNotification.setNotification("New team member joined! ");
         //slackNotification.sendNotification();
+
+        Notification whatsappNotification = new WhatsappNotification(notificationSys);
+        //whatsappNotification.sendNotification();
+
+        Notification pushNotification = new PushNotification(notificationSys);
+        //pushNotification.sendNotification();
 
         ArrayList<String> notificationHistory = emailNotifications.getNotificationHistory();
         for (int i = 0; i < notificationHistory.size(); i++){
@@ -27,17 +30,10 @@ public class Main {
         notificationChannels.addNotificationChannel(SMSnotification);
         notificationChannels.addNotificationChannel(emailNotifications);
         notificationChannels.addNotificationChannel(slackNotification);
+        notificationChannels.addNotificationChannel(whatsappNotification);
+        notificationChannels.addNotificationChannel(pushNotification);
 
         notificationChannels.sendNotificationbyPreference();
-
-
-
-
-
-
-
-
-
 
     }
 }

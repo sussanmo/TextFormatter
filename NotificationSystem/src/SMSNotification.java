@@ -6,7 +6,7 @@ public class SMSNotification extends NotificationDecorator {
 
     @Override
     public String getNotification() {
-        return notificationDecorator.getNotification() + "via SMS";
+        return notificationDecorator.getNotification() + " via SMS";
     }
 
     @Override
