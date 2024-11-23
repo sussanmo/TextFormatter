@@ -6,6 +6,7 @@ public class BasicNotification extends Notification{
     @Override
     public void sendNotification() {
         System.out.println(notification);
+        notificationHistory.add(notification);
     }
 
 

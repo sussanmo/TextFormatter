@@ -4,7 +4,7 @@ import java.util.HashMap;
 public abstract class Notification { // basic notification class
 
     protected String notification = "";
-    private static ArrayList<String> notificationHistory = new ArrayList<>(); //common messages
+    protected static ArrayList<String> notificationHistory = new ArrayList<>(); //common messages
 
 
 
@@ -21,7 +21,7 @@ public abstract class Notification { // basic notification class
 
 
 
-    private void addNotification(String message){
+    protected void addNotification(String message){
         notificationHistory.add(message);
     }
 

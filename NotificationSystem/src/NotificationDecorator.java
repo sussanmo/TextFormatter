@@ -18,6 +18,11 @@ public abstract class NotificationDecorator extends Notification {
         notificationDecorator.setNotification(newMessage);
     }
 
+    @Override
+    public ArrayList<String> getNotificationHistory() {
+        return notificationDecorator.getNotificationHistory();
+    }
+
 
 
 
