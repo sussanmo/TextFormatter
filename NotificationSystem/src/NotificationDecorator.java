@@ -2,11 +2,20 @@ import java.util.ArrayList;
 
 public abstract class NotificationDecorator extends Notification {
 
-    public NotificationDecorator(String notification) {
-        super(notification);
+    protected Notification notificationDecorator;
+
+    public NotificationDecorator(Notification notification) {
+        this.notificationDecorator = notification;
     }
 
-    public abstract ArrayList<String> notifications();
+    @Override
+    public String getNotification() {
+        return notificationDecorator.getNotification();
+    }
+
+
+
+
 
 
 }
