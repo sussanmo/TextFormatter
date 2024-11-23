@@ -3,18 +3,24 @@ import java.util.HashMap;
 
 public class Notification { // basic notification class
 
-    private static ArrayList<String> notifications = new ArrayList<>(); //common messages
+    private static ArrayList<String> notificationHistory = new ArrayList<>(); //common messages
 
+    private String notification;
 
-    public Notification (ArrayList<String> systemMessages){
-        this.notifications = systemMessages;
+    public Notification (String message){
+        this.notification = message;
     }
-    public void sendNotification(String message) {
-        System.out.println("New notification: " + message);
+    public void sendNotification() {
+        System.out.println("New notification: " + notification);
+        addNotification(notification);
     }
 
-    public void addNotification(String message){
-        notifications.add(message);
+    private void addNotification(String message){
+        notificationHistory.add(message);
+    }
+
+    public ArrayList<String> getNotificationHistory(){
+        return notificationHistory;
     }
 
 }

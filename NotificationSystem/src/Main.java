@@ -5,11 +5,11 @@ public class Main {
         ArrayList<String> basicNotification = new ArrayList<>();
 
 
-        Notification notificationSys = new Notification(basicNotification);
-        notificationSys.addNotification("System Update scheduled soon");
-        notificationSys.addNotification("New software update available");
+        Notification notificationSys = new Notification("System Update scheduled soon");
+        //notificationSys.addNotification("System Update scheduled soon");
+        //notificationSys.addNotification("New software update available");
 
-        notificationSys.sendNotification(basicNotification.get(0));
+        //notificationSys.sendNotification(basicNotification.get(0));
 
 
     }
