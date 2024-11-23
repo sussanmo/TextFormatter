@@ -5,8 +5,12 @@ public class Main {
 
 
 
-        Notification notificationSys = new BasicNotification(); // basic notiicaiotn
+        Notification notificationSys = new BasicNotification("System Update"); // basic notiicaiotn
         notificationSys.sendNotification();
+
+        Notification SMSnotification = new SMSNotification(notificationSys);  // basic notiicaiotn
+        SMSnotification.sendNotification();
+
 
 
 //        ArrayList<String> basicNotification = new ArrayList<>();

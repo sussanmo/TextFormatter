@@ -13,6 +13,11 @@ public abstract class NotificationDecorator extends Notification {
         return notificationDecorator.getNotification();
     }
 
+    @Override
+    public void setNotification(String newMessage) {
+        notificationDecorator.setNotification(newMessage);
+    }
+
 
 
 
