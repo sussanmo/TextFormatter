@@ -20,4 +20,12 @@ public class Logger {
         System.out.println("LOG: " + log);
     }
 
+    public void logWithSeverity(String severity, String log){
+        // make seventiy upper case to mock real log
+        String logType = severity.toUpperCase();
+        System.out.println(logType + ": " + log);
+    }
+
+
+
 }
