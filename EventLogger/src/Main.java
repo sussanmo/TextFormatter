@@ -11,5 +11,10 @@ public class Main {
 
         //loggerInstance.printLogHistory();
         loggerInstance.printLogHistoryWithSeverity();
+
+        loggerInstance.archiveLogOnDemand();
+
+
+
     }
 }
