@@ -1,5 +1,8 @@
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.io.IOException;
+
 
 public class Logger {
 
@@ -7,6 +10,8 @@ public class Logger {
     private static ArrayList<String> logHistory;
 
     private static HashMap<String, String> severityLogHistory;
+
+    private static String logFileDirectory = "eventLoggerFile.txt";
 
     private Logger(){
 
@@ -31,10 +36,11 @@ public class Logger {
 
     public void logWithSeverity(String severity, String log){
         // make severtiy upper case to mock real log
-        String logType = severity.toUpperCase();
-        System.out.println(logType + ": " + log);
-        logHistory.add(logType + ": " + log); // add to history
-        severityLogHistory.put(severity.toUpperCase(),(log));
+        String logMessage = severity.toUpperCase() + ":" + log;
+        System.out.println(logMessage);
+        logHistory.add(logMessage); // add to history
+        severityLogHistory.put(severity.toUpperCase(),log);
+        writeLogFile(logMessage);
     }
 
     public void printLogHistory(){
@@ -54,7 +60,15 @@ public class Logger {
         }
     }
 
+    public void writeLogFile(String log){
+        try (FileWriter writer = new FileWriter(logFileDirectory, true)) {
 
+            writer.write(log + "\n");
+
+        }catch (IOException exception){
+            System.out.println("Error in writing file");
+        }
+    }
 
 
 }
