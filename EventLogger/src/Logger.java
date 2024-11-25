@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.FileWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -42,6 +43,7 @@ public class Logger {
     public void log(String log) {
         System.out.println("LOG: " + log);
         logHistory.add(log); // add to history
+        archiveLogPeriodically(log);
     }
 
     public void logWithSeverity(String severity, String log) {
@@ -51,7 +53,8 @@ public class Logger {
         logHistory.add(logMessage); // add to history
         severityLogHistory.put(severity.toUpperCase(), log);
         writeLogFile(logMessage);
-        archiveLogPeriodically(logMessage);
+        archiveLogPeriodically(log);
+
     }
 
     public void printLogHistory() {
@@ -85,15 +88,21 @@ public class Logger {
         String timestampToday = new SimpleDateFormat("yyyyMMdd").format(new Date());
         String archiveFileName = "";
 
+        File archiveDir = new File(archiveFileDirectory);
+        if (!archiveDir.exists()) {
+            archiveDir.mkdirs();
+        }
+
+
         if(!timestampToday.equals(currentDate)){
-            archiveFileName = archiveFileDirectory + "logArchive_" + timestampToday + ".txt";
+            archiveFileName = new File(archiveDir, "logArchive_" + timestampToday + ".txt").getPath();
             currentDate = timestampToday; //update this
         }else {
-            archiveFileName = archiveFileDirectory + "logArchive_" + currentDate + ".txt";
+            archiveFileName = new File(archiveDir, "logArchive_" + currentDate + ".txt").getPath();
         }
 
         try (FileWriter writer = new FileWriter(archiveFileName, true)) {
-            writer.write(logMessage);
+            writer.write(logMessage + "\n");
             System.out.println("Logs archived successfully to: " + archiveFileName);
         } catch (IOException e) {
             System.out.println("Error archiving logs: " + e.getMessage());
@@ -102,8 +111,15 @@ public class Logger {
     }
 
     public void archiveLogOnDemand() { // archives logs each day
-        String timestampToday = new SimpleDateFormat("yyyyMMdd").format(new Date());
-        String archiveFileName = archiveFileDirectory + "logArchive_" + timestampToday + ".txt";
+
+        File archiveDir = new File(archiveFileDirectory);
+        if (!archiveDir.exists()) {
+            archiveDir.mkdirs();
+        }
+
+        String archiveFileName = new File(archiveDir, "logArchiveFile.txt").getPath();
+
+
         try (FileWriter writer = new FileWriter(archiveFileName, true)) {
             for (String log : logHistory) {
                 writer.write(log + "\n");

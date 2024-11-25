@@ -1,4 +1,4 @@
-INFO:extensible for future requirements, such as logging to a file, database, or remote server.DEBUG:outfit generation has 2 items in closetERROR:support features like retrieving log history and flushing logs.Error
+Error
 warning 
 INFO:extensible for future requirements, such as logging to a file, database, or remote server.
 DEBUG:outfit generation has 2 items in closet
