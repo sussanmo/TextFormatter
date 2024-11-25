@@ -9,6 +9,6 @@ public class Main {
         loggerInstance.logWithSeverity("debug", "outfit generation has 2 items in closet");
         loggerInstance.logWithSeverity("error", "support features like retrieving log history and flushing logs.");
 
-
+        loggerInstance.printLogHistory();
     }
 }
