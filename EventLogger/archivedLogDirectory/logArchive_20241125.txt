@@ -38,3 +38,8 @@ warning
 extensible for future requirements, such as logging to a file, database, or remote server.
 outfit generation has 2 items in closet
 support features like retrieving log history and flushing logs.
+Error
+warning 
+extensible for future requirements, such as logging to a file, database, or remote server.
+outfit generation has 2 items in closet
+support features like retrieving log history and flushing logs.

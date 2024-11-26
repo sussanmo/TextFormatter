@@ -14,5 +14,7 @@ public class Main {
 
         loggerInstance.archiveLogOnDemand();
 
+        loggerInstance.outputDestinationLog(Logger.Severity.INFO + " extensible for future requirements, such as logging to a file, database, or remote server.", Logger.OutputType.console);
+
     }
 }

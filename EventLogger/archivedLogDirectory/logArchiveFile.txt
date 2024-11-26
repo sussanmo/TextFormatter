@@ -38,3 +38,8 @@ warning
 INFO:extensible for future requirements, such as logging to a file, database, or remote server.
 DEBUG:outfit generation has 2 items in closet
 ERROR:support features like retrieving log history and flushing logs.
+Error
+warning 
+INFO:extensible for future requirements, such as logging to a file, database, or remote server.
+DEBUG:outfit generation has 2 items in closet
+ERROR:support features like retrieving log history and flushing logs.

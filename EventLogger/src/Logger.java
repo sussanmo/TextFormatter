@@ -40,13 +40,15 @@ public class Logger {
 
     public void log(String log) {
         //System.out.println("LOG: " + log);
-        writeLogFile(log);
-        logHistory.add(log); // add to history
-        archiveLogPeriodically(log);
+        String logwithTime = currentDate + "- " + log;
+        writeLogFile(logwithTime);
+        logHistory.add(logwithTime); // add to history
+        archiveLogPeriodically(logwithTime);
     }
 
     public void logConsole(String log){ //system admin uses
-        System.out.println("LOG: " + log);
+        String logwithTime = currentDate + "- " + log;
+        System.out.println("LOG: " + logwithTime);
     }
 
     public void logRemoteServer(String log){
@@ -54,13 +56,15 @@ public class Logger {
     }
 
     public void logWithSeverity(Severity severity, String log) {
+        String logwithTime = currentDate + "- " + log;
+
         // make severtiy upper case to mock real log
-        String logMessage = severity.toString() + ":" + log;
+        String logMessage = severity.toString() + ":" + logwithTime;
         //System.out.println(logMessage);
-        writeLogFile(logMessage);
-        logHistory.add(logMessage); // add to history
-        severityLogHistory.put(severity.toString(), log);
-        archiveLogPeriodically(log);
+        writeLogFile(logwithTime);
+        logHistory.add(logwithTime); // add to history
+        severityLogHistory.put(severity.toString(), logwithTime);
+        archiveLogPeriodically(logwithTime);
     }
 
     public enum Severity {
@@ -190,7 +194,7 @@ public class Logger {
         }
         }
 
-        private void outputDestinationLog(String log, OutputType outputLocation){
+        public void outputDestinationLog(String log, OutputType outputLocation){
             switch (outputLocation) {
                 case console:
                     logConsole(log);
