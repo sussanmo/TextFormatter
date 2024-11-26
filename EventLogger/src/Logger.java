@@ -45,6 +45,14 @@ public class Logger {
         archiveLogPeriodically(log);
     }
 
+    public void logConsole(String log){ //system admin uses
+        System.out.println("LOG: " + log);
+    }
+
+    public void logRemoteServer(String log){
+        System.out.println("Remote log sent to {}: " + log);
+    }
+
     public void logWithSeverity(Severity severity, String log) {
         // make severtiy upper case to mock real log
         String logMessage = severity.toString() + ":" + log;
@@ -166,6 +174,36 @@ public class Logger {
 
             return alreadyInFile;
 
+        }
+
+
+
+
+        public enum OutputType{
+                console,
+                file,
+                remoteServer;
+
+        @Override
+        public String toString() {
+            return name().toUpperCase();
+        }
+        }
+
+        private void outputDestinationLog(String log, OutputType outputLocation){
+            switch (outputLocation) {
+                case console:
+                    logConsole(log);
+                    break;
+                case file:
+                    writeLogFile(log);
+                    break;
+                case remoteServer:
+                    logRemoteServer(log);
+                    break;
+                default:
+                   logConsole(log);
+            }
         }
 
     }
