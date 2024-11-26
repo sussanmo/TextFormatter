@@ -1,9 +1,7 @@
-import java.io.File;
-import java.io.FileWriter;
+import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.io.IOException;
 import java.util.Date;
 
 
@@ -41,7 +39,8 @@ public class Logger {
     }
 
     public void log(String log) {
-        System.out.println("LOG: " + log);
+        //System.out.println("LOG: " + log);
+        writeLogFile(log);
         logHistory.add(log); // add to history
         archiveLogPeriodically(log);
     }
@@ -49,39 +48,44 @@ public class Logger {
     public void logWithSeverity(String severity, String log) {
         // make severtiy upper case to mock real log
         String logMessage = severity.toUpperCase() + ":" + log;
-        System.out.println(logMessage);
+        //System.out.println(logMessage);
+        writeLogFile(logMessage);
         logHistory.add(logMessage); // add to history
         severityLogHistory.put(severity.toUpperCase(), log);
-        writeLogFile(logMessage);
         archiveLogPeriodically(log);
-
     }
 
-    public void printLogHistory() {
+    public void logHistoryFile() {
         for (String log : logHistory) {
-            System.out.println(log);
+            //System.out.println(log);
+            writeLogFile(log);
         }
-
     }
 
     public ArrayList<String> getLogHistory() {
         return logHistory;
     }
 
-    public void printLogHistoryWithSeverity() {
+    public void LogHistoryWithSeverity() {
         for (String severity : severityLogHistory.keySet()) {
-            System.out.println(severity + ":" + severityLogHistory.get(severity));
+            //System.out.println(severity + ":" + severityLogHistory.get(severity));
+            writeLogFile(severity + ":" + severityLogHistory.get(severity) );
         }
     }
 
     public void writeLogFile(String log) {
-        try (FileWriter writer = new FileWriter(logFileDirectory, true)) {
+        if(!checkLogHistoryDuplicate(log,logFileDirectory )){
+            try (FileWriter writer = new FileWriter(logFileDirectory, true)) {
 
-            writer.write(log + "\n");
+                writer.write(log + "\n");
 
-        } catch (IOException exception) {
-            System.out.println("Error in writing file");
+            } catch (IOException exception) {
+                System.out.println("Error in writing file");
+            }
         }
+
+
+
     }
 
     public void archiveLogPeriodically(String logMessage) { // archives logs each day
@@ -128,6 +132,27 @@ public class Logger {
         } catch (IOException e) {
             System.out.println("Error archiving logs: " + e.getMessage());
         }
+        }
+
+        private boolean checkLogHistoryDuplicate(String log, String logFileName){
+            boolean alreadyInFile = false;
+
+            File file = new File(logFileName);
+
+            try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+                String line = reader.readLine();
+                while (line != null){
+                    if(log.equals(line)){
+                        alreadyInFile = true;
+                    }
+                    line = reader.readLine();
+                }
+            } catch (IOException e) {
+                //throw new RuntimeException(e);
+            }
+
+            return alreadyInFile;
+
         }
 
     }
