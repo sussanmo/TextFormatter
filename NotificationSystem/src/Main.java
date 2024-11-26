@@ -28,14 +28,14 @@ public class Main {
         }
 
         NotificationPreferences notificationChannels = new NotificationPreferences();
-        notificationChannels.setNotificationChannel(SMSnotification);
-//        notificationChannels.addNotificationChannel(SMSnotification);
-//        notificationChannels.addNotificationChannel(emailNotifications);
-//        notificationChannels.addNotificationChannel(slackNotification);
-//        notificationChannels.addNotificationChannel(whatsappNotification);
-//        notificationChannels.addNotificationChannel(pushNotification);
-//
-//        notificationChannels.sendNotification();
+        //notificationChannels.setNotificationChannel(SMSnotification);
+        notificationChannels.addNotificationChannelForMultipleNotification(SMSnotification);
+        notificationChannels.addNotificationChannelForMultipleNotification(emailNotifications);
+        notificationChannels.addNotificationChannelForMultipleNotification(slackNotification);
+        notificationChannels.addNotificationChannelForMultipleNotification(whatsappNotification);
+        notificationChannels.addNotificationChannelForMultipleNotification(pushNotification);
+
+        notificationChannels.sendNotification();
 
 
 
