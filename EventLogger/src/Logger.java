@@ -22,6 +22,8 @@ public class Logger {
 
     private String currentDate = new SimpleDateFormat("yyyyMMdd").format(new Date());
 
+    private String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+
 
     private Logger() {
 
@@ -40,14 +42,14 @@ public class Logger {
 
     public void log(String log) {
         //System.out.println("LOG: " + log);
-        String logwithTime = currentDate + "- " + log;
+        String logwithTime = timeStamp + "- " + log;
         writeLogFile(logwithTime);
         logHistory.add(logwithTime); // add to history
         archiveLogPeriodically(logwithTime);
     }
 
     public void logConsole(String log){ //system admin uses
-        String logwithTime = currentDate + "- " + log;
+        String logwithTime = timeStamp + "- " + log;
         System.out.println("LOG: " + logwithTime);
     }
 
@@ -55,8 +57,8 @@ public class Logger {
         System.out.println("Remote log sent to {}: " + log);
     }
 
-    public void logWithSeverity(Severity severity, String log) {
-        String logwithTime = currentDate + "- " + log;
+    public void logWithSeverity(Severity severity, String log) { // implemented consistency for logs
+        String logwithTime = timeStamp + "- " + log;
 
         // make severtiy upper case to mock real log
         String logMessage = severity.toString() + ":" + logwithTime;
