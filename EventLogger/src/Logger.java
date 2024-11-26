@@ -45,15 +45,28 @@ public class Logger {
         archiveLogPeriodically(log);
     }
 
-    public void logWithSeverity(String severity, String log) {
+    public void logWithSeverity(Severity severity, String log) {
         // make severtiy upper case to mock real log
-        String logMessage = severity.toUpperCase() + ":" + log;
+        String logMessage = severity.toString() + ":" + log;
         //System.out.println(logMessage);
         writeLogFile(logMessage);
         logHistory.add(logMessage); // add to history
-        severityLogHistory.put(severity.toUpperCase(), log);
+        severityLogHistory.put(severity.toString(), log);
         archiveLogPeriodically(log);
     }
+
+    public enum Severity {
+        INFO,
+        DEBUG,
+        ERROR;
+
+        @Override
+        public String toString() {
+            return name().toUpperCase();
+        }
+    }
+
+
 
     public void logHistoryFile() {
         for (String log : logHistory) {
