@@ -11,7 +11,10 @@ public class SMSNotification extends NotificationDecorator {
 
     @Override
     public void sendNotification() {
-        System.out.println("New SMS Notification: " + getNotification());
+        String notificaiton = "New SMS Notification: " + getNotification();
+        System.out.println(notificaiton);
+        addNotification(notificaiton);
+
 
     }
 

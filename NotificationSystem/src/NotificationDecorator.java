@@ -4,6 +4,9 @@ public abstract class NotificationDecorator extends Notification {
 
     protected Notification notificationDecorator;
 
+    protected static ArrayList<String> notificationHistory = new ArrayList<>(); // Common messages
+
+
     public NotificationDecorator(Notification notification) {
         this.notificationDecorator = notification;
     }
@@ -18,13 +21,10 @@ public abstract class NotificationDecorator extends Notification {
         notificationDecorator.setNotification(newMessage);
     }
 
-    @Override
-    public ArrayList<String> getNotificationHistory() {
-        return notificationDecorator.getNotificationHistory();
+
+    protected void addNotification(String message) {
+        notificationHistory.add(message);
     }
-
-
-
 
 
 

@@ -10,7 +10,9 @@ public class PushNotification extends NotificationDecorator{
 
     @Override
     public void sendNotification() {
+        String notificaiton = "Push Notification: " + getNotification();
         System.out.println("Push Notification: " + getNotification());
+        addNotification(notificaiton);
     }
 
 

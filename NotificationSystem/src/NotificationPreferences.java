@@ -5,7 +5,7 @@ public class NotificationPreferences extends Notification { // class to let user
     private Notification channelPreference;
     private ArrayList<Notification> notificationPreference = new ArrayList<>();
 
-    public void addNotificationChannel(Notification notificationType){
+    public void addNotificationChannelForMultipleNotification(Notification notificationType){
         notificationPreference.add(notificationType);
     }
 
@@ -20,14 +20,6 @@ public class NotificationPreferences extends Notification { // class to let user
     public void setNotificationChannel(Notification notificationChannel){
         this.channelPreference = notificationChannel;
         channelPreference.sendNotification();
-
-    }
-
-
-
-
-
-    public void sendMultipleChannels(){
 
     }
 

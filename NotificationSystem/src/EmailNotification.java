@@ -12,8 +12,10 @@ public class EmailNotification extends NotificationDecorator{
 
     @Override
     public void sendNotification() {
-        System.out.println("Emailed Notification: " + getNotification());
-        notificationHistory.add(getNotification());
+        String notificaiton = "Emailed Notification: " + getNotification();
+        System.out.println(notificaiton);
+        addNotification(notificaiton);
+
 
 
     }

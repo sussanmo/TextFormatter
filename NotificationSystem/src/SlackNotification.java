@@ -11,7 +11,10 @@ public class SlackNotification extends NotificationDecorator{
 
     @Override
     public void sendNotification() {
-        System.out.println("Slack Update: " + getNotification());
+        String notificaiton = "Slack Update: " + getNotification();
+        System.out.println(notification);
+        addNotification(notificaiton);
+
     }
 
 

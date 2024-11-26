@@ -9,9 +9,9 @@ public class Main {
         //SMSnotification.sendNotification();
 
         Notification emailNotifications = new EmailNotification(notificationSys);  // basic notiicaiotn
-        //emailNotifications.sendNotification();
-        //emailNotifications.setNotification("Reminder permissions needed");
-        //emailNotifications.sendNotification();
+        emailNotifications.sendNotification();
+        emailNotifications.setNotification("Reminder permissions needed");
+        emailNotifications.sendNotification();
 
         Notification slackNotification = new SlackNotification(notificationSys);  // basic notiicaiotn
         //slackNotification.sendNotification();
@@ -35,7 +35,7 @@ public class Main {
         notificationChannels.addNotificationChannelForMultipleNotification(whatsappNotification);
         notificationChannels.addNotificationChannelForMultipleNotification(pushNotification);
 
-        notificationChannels.sendNotification();
+        //notificationChannels.sendNotification();
 
 
 

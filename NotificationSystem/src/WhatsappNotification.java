@@ -10,7 +10,10 @@ public class WhatsappNotification extends NotificationDecorator {
 
     @Override
     public void sendNotification() {
-        System.out.println("Whatsapp Notification: " + getNotification());
+        String notificaiton = "Whatsapp Notification: " + getNotification();
+        System.out.println(notificaiton);
+        addNotification(notificaiton);
+
     }
 
 }
