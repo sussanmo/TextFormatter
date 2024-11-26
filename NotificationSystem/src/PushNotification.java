@@ -12,4 +12,6 @@ public class PushNotification extends NotificationDecorator{
     public void sendNotification() {
         System.out.println("Push Notification: " + getNotification());
     }
+
+
 }

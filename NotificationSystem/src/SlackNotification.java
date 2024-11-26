@@ -13,4 +13,6 @@ public class SlackNotification extends NotificationDecorator{
     public void sendNotification() {
         System.out.println("Slack Update: " + getNotification());
     }
+
+
 }

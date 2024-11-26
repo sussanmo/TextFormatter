@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
         Notification notificationSys = new BasicNotification("New Outlook Email "); // basic notiicaiotn
@@ -27,13 +28,16 @@ public class Main {
         }
 
         NotificationPreferences notificationChannels = new NotificationPreferences();
-        notificationChannels.addNotificationChannel(SMSnotification);
-        notificationChannels.addNotificationChannel(emailNotifications);
-        notificationChannels.addNotificationChannel(slackNotification);
-        notificationChannels.addNotificationChannel(whatsappNotification);
-        notificationChannels.addNotificationChannel(pushNotification);
+        notificationChannels.setNotificationChannel(SMSnotification);
+//        notificationChannels.addNotificationChannel(SMSnotification);
+//        notificationChannels.addNotificationChannel(emailNotifications);
+//        notificationChannels.addNotificationChannel(slackNotification);
+//        notificationChannels.addNotificationChannel(whatsappNotification);
+//        notificationChannels.addNotificationChannel(pushNotification);
+//
+//        notificationChannels.sendNotification();
 
-        notificationChannels.sendNotificationbyPreference();
+
 
     }
 }

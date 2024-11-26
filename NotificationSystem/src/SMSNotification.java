@@ -16,6 +16,4 @@ public class SMSNotification extends NotificationDecorator {
     }
 
 
-
-
 }

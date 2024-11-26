@@ -17,4 +17,6 @@ public class EmailNotification extends NotificationDecorator{
 
 
     }
+
+
 }
