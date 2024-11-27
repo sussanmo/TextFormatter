@@ -1,3 +1,5 @@
+package com.EventLogger;
+
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -31,7 +33,7 @@ public class Logger {
 
     public static Logger getInstance() {
         if (uniqueInstance == null) {
-            System.out.println("Creating new Logger instance");
+            System.out.println("Creating new com.EventLogger.Logger instance");
             uniqueInstance = new Logger();
             logHistory = new ArrayList<>(); // instantiate once logger is available
             severityLogHistory = new HashMap<>();

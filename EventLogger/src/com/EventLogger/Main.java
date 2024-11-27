@@ -1,3 +1,7 @@
+package com.EventLogger;
+
+import com.EventLogger.Logger;
+
 public class Main {
     public static void main(String[] args) {
 
