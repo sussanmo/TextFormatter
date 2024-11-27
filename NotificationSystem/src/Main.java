@@ -9,9 +9,9 @@ public class Main {
         //SMSnotification.sendNotification();
 
         Notification emailNotifications = new EmailNotification(notificationSys);  // basic notiicaiotn
-        emailNotifications.sendNotification();
-        emailNotifications.setNotification("Reminder permissions needed");
-        emailNotifications.sendNotification();
+//        emailNotifications.sendNotification();
+//        emailNotifications.setNotification("Reminder permissions needed");
+//        emailNotifications.sendNotification();
 
         Notification slackNotification = new SlackNotification(notificationSys);  // basic notiicaiotn
         //slackNotification.sendNotification();
@@ -29,13 +29,18 @@ public class Main {
 
         NotificationPreferences notificationChannels = new NotificationPreferences();
         //notificationChannels.setNotificationChannel(SMSnotification);
-        notificationChannels.addNotificationChannelForMultipleNotification(SMSnotification);
-        notificationChannels.addNotificationChannelForMultipleNotification(emailNotifications);
-        notificationChannels.addNotificationChannelForMultipleNotification(slackNotification);
-        notificationChannels.addNotificationChannelForMultipleNotification(whatsappNotification);
-        notificationChannels.addNotificationChannelForMultipleNotification(pushNotification);
+//        notificationChannels.addNotificationChannelForMultipleNotification(SMSnotification);
+//        notificationChannels.addNotificationChannelForMultipleNotification(emailNotifications);
+//        notificationChannels.addNotificationChannelForMultipleNotification(slackNotification);
+//        notificationChannels.addNotificationChannelForMultipleNotification(whatsappNotification);
+//        notificationChannels.addNotificationChannelForMultipleNotification(pushNotification);
 
+        notificationChannels.setEnabledNotificationChannels(SMSnotification);
         //notificationChannels.sendNotification();
+        notificationChannels.disableNotificationChannels(SMSnotification);
+
+
+
 
 
 
