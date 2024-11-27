@@ -1,3 +1,5 @@
+package com.NotificationSystem;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -6,7 +8,7 @@ public class NotificationPreferences extends Notification { // class to let user
     private Notification channelPreference;
     private ArrayList<Notification> notificationPreference = new ArrayList<>();
 
-    //private HashMap<Notification, Boolean> enabledNotificationChannels = new HashMap<>();
+    //private HashMap<com.NotificationSystem.Notification, Boolean> enabledNotificationChannels = new HashMap<>();
 
     public void addNotificationChannelForMultipleNotification(Notification notificationType) {
         notificationPreference.add(notificationType);
@@ -37,7 +39,7 @@ public class NotificationPreferences extends Notification { // class to let user
     public void disableNotificationChannels(Notification notificationChannel) {
         if (notificationPreference.contains(notificationChannel)) {
             notificationPreference.remove(notificationChannel);
-            System.out.println(notificationChannel+ " was successfully disabled");
+            //System.out.println(notificationChannel+ " was successfully disabled");
         }
     }
 

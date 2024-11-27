@@ -1,4 +1,8 @@
-public class PushNotification extends NotificationDecorator{
+package com.NotificationSystem;
+
+import com.NotificationSystem.NotificationDecorator;
+
+public class PushNotification extends NotificationDecorator {
     public PushNotification(Notification notificationDecorator) {
         super(notificationDecorator);
     }
@@ -14,6 +18,4 @@ public class PushNotification extends NotificationDecorator{
         System.out.println("Push Notification: " + getNotification());
         addNotification(notificaiton);
     }
-
-
 }

@@ -1,4 +1,8 @@
-public class SlackNotification extends NotificationDecorator{
+package com.NotificationSystem;
+
+import com.NotificationSystem.NotificationDecorator;
+
+public class SlackNotification extends NotificationDecorator {
 
     public SlackNotification(Notification notificationDecorator) {
         super(notificationDecorator);
@@ -16,6 +20,8 @@ public class SlackNotification extends NotificationDecorator{
         addNotification(notificaiton);
 
     }
+
+
 
 
 }

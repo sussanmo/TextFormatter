@@ -1,3 +1,5 @@
+package com.NotificationSystem;
+
 import java.util.ArrayList;
 
 public abstract class NotificationDecorator extends Notification {
@@ -25,6 +27,9 @@ public abstract class NotificationDecorator extends Notification {
     protected void addNotification(String message) {
         notificationHistory.add(message);
     }
+
+
+
 
 
 

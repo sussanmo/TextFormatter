@@ -1,4 +1,6 @@
-public class EmailNotification extends NotificationDecorator{
+package com.NotificationSystem;
+
+public class EmailNotification extends NotificationDecorator {
 
 
     public EmailNotification(Notification notificationDecorator) {

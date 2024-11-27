@@ -1,3 +1,5 @@
+package com.NotificationSystem;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -13,8 +15,6 @@ public abstract class Notification { // basic notification class
     }
 
     public abstract void sendNotification();
-
-
 
     public void setNotification(String notification){
         this.notification = notification;
@@ -32,5 +32,9 @@ public abstract class Notification { // basic notification class
     public HashMap<String, String> getNotificationHistoryWithChannel() {
         return notificationHistoryChannel;
     }
+
+
+
+
 
 }

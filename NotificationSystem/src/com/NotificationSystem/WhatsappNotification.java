@@ -1,3 +1,7 @@
+package com.NotificationSystem;
+
+import com.NotificationSystem.NotificationDecorator;
+
 public class WhatsappNotification extends NotificationDecorator {
     public WhatsappNotification(Notification notificationDecorator) {
         super(notificationDecorator);
@@ -15,6 +19,7 @@ public class WhatsappNotification extends NotificationDecorator {
         addNotification(notificaiton);
 
     }
+
 
 }
 

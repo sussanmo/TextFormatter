@@ -1,3 +1,7 @@
+package com.NotificationSystem;
+
+import com.NotificationSystem.NotificationDecorator;
+
 public class SMSNotification extends NotificationDecorator {
 
     public SMSNotification(Notification notificationDecorator) {
@@ -17,6 +21,9 @@ public class SMSNotification extends NotificationDecorator {
 
 
     }
+
+
+
 
 
 }

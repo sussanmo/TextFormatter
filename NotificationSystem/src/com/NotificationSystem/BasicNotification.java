@@ -1,4 +1,6 @@
-public class BasicNotification extends Notification{
+package com.NotificationSystem;
+
+public class BasicNotification extends Notification {
     public BasicNotification(String notification) {
         this.notification = notification;
     }
